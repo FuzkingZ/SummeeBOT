@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_message_msg_list' %}">message_msg Listing</a></p>
+<table class="table">
+<tr><td>from</td><td>{{ object.from }}</td></tr>
+<tr><td>to</td><td>{{ object.to }}</td></tr>
+<tr><td>createdTime</td><td>{{ object.createdTime }}</td></tr>
+<tr><td>deliveredTime</td><td>{{ object.deliveredTime }}</td></tr>
+<tr><td>text</td><td>{{ object.text }}</td></tr>
+<tr><td>location</td><td>{{ object.location }}</td></tr>
+<tr><td>hasContent</td><td>{{ object.hasContent }}</td></tr>
+<tr><td>contentType</td><td>{{ object.contentType }}</td></tr>
+<tr><td>contentPreview</td><td>{{ object.contentPreview }}</td></tr>
+<tr><td>contentMetadata</td><td>{{ object.contentMetadata }}</td></tr>
+<tr><td>sessionId</td><td>{{ object.sessionId }}</td></tr>
+<tr><td>chunks</td><td>{{ object.chunks }}</td></tr>
+<tr><td>relatedMessageId</td><td>{{ object.relatedMessageId }}</td></tr>
+<tr><td>messageRelationType</td><td>{{ object.messageRelationType }}</td></tr>
+<tr><td>readCount</td><td>{{ object.readCount }}</td></tr>
+<tr><td>relatedMessageServiceCode</td><td>{{ object.relatedMessageServiceCode }}</td></tr>
+<tr><td>result_code</td><td>{{ object.result_code }}</td></tr>
+<tr><td>result_msg</td><td>{{ object.result_msg }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit message_msg</a>
+
+{% endblock %}

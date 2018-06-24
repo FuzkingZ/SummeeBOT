@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_message_msg_list' %}">message_msg Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>from_mid</td>
+    <td>to_mid</td>
+    <td>createdTime</td>
+    <td>deliveredTime</td>
+    <td>text</td>
+    <td>location</td>
+    <td>hasContent</td>
+    <td>contentType</td>
+    <td>contentPreview</td>
+    <td>contentMetadata</td>
+    <td>sessionId</td>
+    <td>chunks</td>
+    <td>relatedMessageId</td>
+    <td>messageRelationType</td>
+    <td>readCount</td>
+    <td>relatedMessageServiceCode</td>
+    <td>result_code</td>
+    <td>result_msg</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.from_mid }}</td>
+    <td>{{ object.to_mid }}</td>
+    <td>{{ object.createdTime }}</td>
+    <td>{{ object.deliveredTime }}</td>
+    <td>{{ object.text }}</td>
+    <td>{{ object.location }}</td>
+    <td>{{ object.hasContent }}</td>
+    <td>{{ object.contentType }}</td>
+    <td>{{ object.contentPreview }}</td>
+    <td>{{ object.contentMetadata }}</td>
+    <td>{{ object.sessionId }}</td>
+    <td>{{ object.chunks }}</td>
+    <td>{{ object.relatedMessageId }}</td>
+    <td>{{ object.messageRelationType }}</td>
+    <td>{{ object.readCount }}</td>
+    <td>{{ object.relatedMessageServiceCode }}</td>
+    <td>{{ object.result_code }}</td>
+    <td>{{ object.result_msg }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'endpoints_message_msg_create' %}">Create new message_msg</a>
+{% endblock %}

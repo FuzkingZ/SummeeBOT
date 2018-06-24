@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'Usermanager_group_list' %}">Group Listing</a></p>
+<table class="table">
+<tr><td>group_id</td><td>{{ object.group_id }}</td></tr>
+<tr><td>group_name</td><td>{{ object.group_name }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Group</a>
+
+{% endblock %}

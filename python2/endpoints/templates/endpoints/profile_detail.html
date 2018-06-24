@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_profile_list' %}">Profile Listing</a></p>
+<table class="table">
+<tr><td>userid</td><td>{{ object.userid }}</td></tr>
+<tr><td>phone</td><td>{{ object.phone }}</td></tr>
+<tr><td>email</td><td>{{ object.email }}</td></tr>
+<tr><td>regionCode</td><td>{{ object.regionCode }}</td></tr>
+<tr><td>displayName</td><td>{{ object.displayName }}</td></tr>
+<tr><td>phoneticName</td><td>{{ object.phoneticName }}</td></tr>
+<tr><td>pictureStatus</td><td>{{ object.pictureStatus }}</td></tr>
+<tr><td>thumbnailUrl</td><td>{{ object.thumbnailUrl }}</td></tr>
+<tr><td>statusMessage</td><td>{{ object.statusMessage }}</td></tr>
+<tr><td>allowSearchByUserid</td><td>{{ object.allowSearchByUserid }}</td></tr>
+<tr><td>allowSearchByEmail</td><td>{{ object.allowSearchByEmail }}</td></tr>
+<tr><td>picturePath</td><td>{{ object.picturePath }}</td></tr>
+<tr><td>musicProfile</td><td>{{ object.musicProfile }}</td></tr>
+<tr><td>videoProfile</td><td>{{ object.videoProfile }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Profile</a>
+
+{% endblock %}

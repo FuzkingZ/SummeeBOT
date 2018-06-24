@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'Usermanager_account_list' %}">Account Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>account_id</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>account_password</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.account_id }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.account_password }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'Usermanager_account_create' %}">Create new Account</a>
+{% endblock %}

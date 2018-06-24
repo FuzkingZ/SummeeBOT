@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_profile_list' %}">Profile Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>userid</td>
+    <td>phone</td>
+    <td>email</td>
+    <td>regionCode</td>
+    <td>displayName</td>
+    <td>phoneticName</td>
+    <td>pictureStatus</td>
+    <td>thumbnailUrl</td>
+    <td>statusMessage</td>
+    <td>allowSearchByUserid</td>
+    <td>allowSearchByEmail</td>
+    <td>picturePath</td>
+    <td>musicProfile</td>
+    <td>videoProfile</td>
+    <td>created</td>
+    <td>last_updated</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.userid }}</td>
+    <td>{{ object.phone }}</td>
+    <td>{{ object.email }}</td>
+    <td>{{ object.regionCode }}</td>
+    <td>{{ object.displayName }}</td>
+    <td>{{ object.phoneticName }}</td>
+    <td>{{ object.pictureStatus }}</td>
+    <td>{{ object.thumbnailUrl }}</td>
+    <td>{{ object.statusMessage }}</td>
+    <td>{{ object.allowSearchByUserid }}</td>
+    <td>{{ object.allowSearchByEmail }}</td>
+    <td>{{ object.picturePath }}</td>
+    <td>{{ object.musicProfile }}</td>
+    <td>{{ object.videoProfile }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'endpoints_profile_create' %}">Create new Profile</a>
+{% endblock %}

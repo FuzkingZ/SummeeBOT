@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'Usermanager_account_list' %}">Account Listing</a></p>
+<table class="table">
+<tr><td>account_id</td><td>{{ object.account_id }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>account_password</td><td>{{ object.account_password }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Account</a>
+
+{% endblock %}

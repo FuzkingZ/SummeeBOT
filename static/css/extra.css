@@ -1,0 +1,44 @@
+html, body {
+    background: #eee;
+    height: 100%;
+}
+header, main, footer {
+  padding-left: 350;
+}
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+.sidenav {
+  width: 255px!important;
+}
+table{
+  
+    display: block;
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+
+}
+main-content{
+  padding-left: 270;
+}
+.sidenav-overlay {
+  
+     z-index: 0!important;
+}
+
+}
+@media only screen and (max-width: 5px){
+.wrapper {
+  padding-left: 150px;
+}
+}
+
+@media only screen and (max-width: 992px){
+.wrapper {
+  padding-left: 0px;
+}
+}

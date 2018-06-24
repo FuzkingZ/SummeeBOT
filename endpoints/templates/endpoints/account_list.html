@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% block title %} รายการบัญชีไลน์ {% endblock %}
+
+<!-- <p><a class="btn btn-default" href="{% url 'endpoints_account_list' %}">บัญชี LINE ทั้งหมด</a></p> -->
+  <!-- Modal Trigger -->
+  
+
+
+
+
+<br>
+<a class="btn btn-primary right" href="{% url 'endpoints_account_create' %}">Create new account</a>
+<table class="table striped responsive-table card mdl-data-table dbtable">
+    <thead>   
+    <tr >
+        
+    <td align="right">รูปโปรไฟล์</td>
+    <td>ชื่อบัญชี</td>
+    {% comment %} <td>ID</td> {% endcomment %}
+    {% comment %} <td>Link</td> {% endcomment %}
+    {% comment %} <td>id</td> {% endcomment %}
+    <td>Email</td>
+    {% comment %} <td>created</td> {% endcomment %}
+    {% comment %} <td>last_updated</td> {% endcomment %}
+    {% comment %} <td>password</td> {% endcomment %}
+    {% comment %} <td>auth_token</td> {% endcomment %}
+    {% comment %} <td>timeline_token</td> {% endcomment %}
+    {% comment %} <td>mid</td> {% endcomment %}
+   
+    <td>เมนู</td>
+</tr>
+</thead>
+<tbody>
+{% for object in object_list %}
+
+<tr>
+        <td >
+        {% if object.qrcodeurl %}
+                <img height="55" width="55"  src="https://profile.line-scdn.net/{{ object.qrcodeurl }}"> 
+             {% else %}
+                <img height="55" width="55"  src="https://www.shareicon.net/data/128x128/2016/01/24/708382_people_512x512.png"> 
+             {% endif %}
+           </td>
+        
+        <td>
+                {% if object.Name %}
+                {{ object.Name |default_if_none:"ยังไม่ Login"}}
+             {% else %}
+              <B>ยังไม่ Login</B>
+             {% endif %}
+           </td>
+            
+            
+            {% comment %} {{ object.Name |default_if_none:"ยังไม่ Login"}}
+            {% endcomment %}
+        </td> 
+    {% comment %} <td>{{object.pk}}</td> {% endcomment %}
+    {% comment %} <td>
+        <a href="{{object.get_absolute_url}}">{{object}}</a>
+    </td> {% endcomment %}
+    {% comment %} <td>{{ object.id }}</td> {% endcomment %}
+    <td>{{ object.email }}</td>
+    {% comment %} <td>{{ object.created }}</td> {% endcomment %}
+    {% comment %} <td>{{ object.last_updated }}</td> {% endcomment %}
+    {% comment %} <td>{{ object.password }}</td> {% endcomment %}
+    {% comment %} <td>{{ object.auth_tosken }}</td> {% endcomment %}
+    {% comment %} <td>{{ object.timeline_token }}</td> {% endcomment %}
+   
+    {% comment %} <td>{{ object.mid }}</td> {% endcomment %}
+    
+    <td> 
+        
+ <!-- Modal Structure -->
+ <div id="loginLine_Modal{{object.id}}" class="modal">
+  <div class="modal-content">
+    <h4>กำลังเข้าระบบไลน์</h4>
+    <center></center>
+    <p>โปรดรอ อย่าพึ่งปิดหน้าต่างหนี</p>
+    <h3 id="LoginResult_Modal{{object.id}}"></h3>
+    <br>
+
+   
+     <br>
+     <br>
+     <h3>หากไม่รหัสขึ้นให้คลิกที่นี้</h3>
+     <a href="#!" id="loadPinBTN"  IDLINE="{{object.id}}" class="loadPinBTN red waves-effect waves-green btn-flat">โหลด PIN CODE</a></center> 
+  </div>
+  <div class="modal-footer">
+    <a href="#!" id="closeModal" class="modal-close waves-effect waves-green btn-flat">ปิด</a>
+
+  </div>
+</div>
+ 
+          {% if object.Name %}
+          <!-- <a class="btn btn-primary modal-trigger btnLogin"  id="btnLogin{{object.id}}" lineID="{{object.id}}" data-target="loginLine_Modal{{object.id}}" >RELOGIN</a> -->
+           {% else %}
+           <a class="btn btn-primary modal-trigger btnLogin"  id="btnLogin{{object.id}}" lineID="{{object.id}}" data-target="loginLine_Modal{{object.id}}" >LOGIN</a>
+        {% endif %}
+      
+      {% comment %}<a class="btn btn-primary" id="btnLogin" lineID="{{object.id}}">LOGIN</a>  {% url 'loginline_view' object.id%} {% endcomment %}
+      <a class="btn" href="{{object.get_absolute_url}}" >เมนู<i class="material-icons right">arrow_drop_down</i></a>
+    </td>
+</tr>
+
+
+{% endfor %}
+</tbody>
+</table>
+
+<script src="{% static 'material/js/jquery.js' %}"></script>
+
+
+{% endblock %}

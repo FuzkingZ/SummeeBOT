@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_message_list' %}">message Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>text</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>msgid</td>
+    <td>type</td>
+    <td>packageid</td>
+    <td>stickerid</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.text }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.msgid }}</td>
+    <td>{{ object.type }}</td>
+    <td>{{ object.packageid }}</td>
+    <td>{{ object.stickerid }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'endpoints_message_create' %}">Create new message</a>
+{% endblock %}

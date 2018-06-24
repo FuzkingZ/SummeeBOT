@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<head>
+    <title>เพิ่มบัญชีไลน์</title>
+
+
+</head>
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_account_list' %}">บัญชี LINE ทั้งหมด</a></p>
+
+<div class="container center row" style="pading: bottom 10px;">
+    <form method="post" class="striped responsive-table card col s12">
+            <div class="row">
+                    {% csrf_token %}
+                    {{form|crispy}}
+  
+
+        
+                </div>
+                
+            <button class="waves-effect waves-light btn-large" type="submit">เพิ่มบัญชีไลน์ </button>
+            
+      
+        </form>
+   
+  </div>
+
+
+     
+{% endblock %}

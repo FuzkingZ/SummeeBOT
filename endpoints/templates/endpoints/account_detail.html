@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+<head>
+    <title>แก้ไขบัญชีไลน์</title>
+
+
+</head>
+{% load static %}
+{% block content %}
+<p>
+    <a class="btn btn-default" href="{% url 'endpoints_account_list' %}">Account Listing</a></p>
+<table class="table striped responsive-table card">
+        <thead> 
+            
+            
+            </thead>
+            <tbody>
+                    <tr class=""><td>id</td><td>{{ object.id }}</td></tr>
+                    <tr><td>email</td><td>{{ object.email }}</td></tr>
+                    <tr class=""><td>created</td><td>{{ object.created }}</td></tr>
+                    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+                    <tr class=""><td>password</td><td>{{ object.password }}</td></tr>
+                    <tr><td>auth_token</td><td>{{ object.auth_token }}</td></tr>
+                    <tr class=""><td>timeline_token</td><td>{{ object.timeline_token }}</td></tr>
+                    <tr><td>qrcodeurl</td><td>{{ object.qrcodeurl }}</td></tr>
+                    <tr class=""><td>mid</td><td>{{ object.mid }}</td></tr>
+                    <tr><td>Name</td><td>{{ object.Name }}</td></tr>
+            </tbody>
+
+
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit account</a>
+    
+<a class="btn btn-primary"  href="{% url 'loginline_view' object.id%}">LOGIN With >>> {{object.email}}</a>
+<a class="btn btn-primary"  href="{% url 'logoutline_view' object.id%}">LOGOUT >>> {{object.email}}</a>
+
+
+
+{% endblock %}

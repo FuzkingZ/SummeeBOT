@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_timeline_msg_list' %}">timeline_msg Listing</a></p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>code</td><td>{{ object.code }}</td></tr>
+<tr><td>message</td><td>{{ object.message }}</td></tr>
+<tr><td>result</td><td>{{ object.result }}</td></tr>
+<tr><td>writerMid</td><td>{{ object.writerMid }}</td></tr>
+<tr><td>appSn</td><td>{{ object.appSn }}</td></tr>
+<tr><td>homeId</td><td>{{ object.homeId }}</td></tr>
+<tr><td>postId</td><td>{{ object.postId }}</td></tr>
+<tr><td>status</td><td>{{ object.status }}</td></tr>
+<tr><td>likeCount</td><td>{{ object.likeCount }}</td></tr>
+<tr><td>commentCount</td><td>{{ object.commentCount }}</td></tr>
+<tr><td>postInfo_msg</td><td>{{ object.postInfo_msg }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit timeline_msg</a>
+
+{% endblock %}

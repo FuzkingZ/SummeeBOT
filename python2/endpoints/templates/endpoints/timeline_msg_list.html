@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_timeline_msg_list' %}">timeline_msg Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>slug</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>code</td>
+    <td>message</td>
+    <td>result</td>
+    <td>writerMid</td>
+    <td>appSn</td>
+    <td>homeId</td>
+    <td>postId</td>
+    <td>status</td>
+    <td>likeCount</td>
+    <td>commentCount</td>
+    <td>postInfo_msg</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.slug }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.code }}</td>
+    <td>{{ object.message }}</td>
+    <td>{{ object.result }}</td>
+    <td>{{ object.writerMid }}</td>
+    <td>{{ object.appSn }}</td>
+    <td>{{ object.homeId }}</td>
+    <td>{{ object.postId }}</td>
+    <td>{{ object.status }}</td>
+    <td>{{ object.likeCount }}</td>
+    <td>{{ object.commentCount }}</td>
+    <td>{{ object.postInfo_msg }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'endpoints_timeline_msg_create' %}">Create new timeline_msg</a>
+{% endblock %}

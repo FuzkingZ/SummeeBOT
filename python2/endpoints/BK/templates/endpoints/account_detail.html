@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'endpoints_account_list' %}">account Listing</a></p>
+<table class="table">
+<tr><td>id</td><td>{{ object.id }}</td></tr>
+<tr><td>email</td><td>{{ object.email }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>password</td><td>{{ object.password }}</td></tr>
+<tr><td>auth_token</td><td>{{ object.auth_token }}</td></tr>
+<tr><td>timeline_token</td><td>{{ object.timeline_token }}</td></tr>
+<tr><td>qrcodeurl</td><td>{{ object.qrcodeurl }}</td></tr>
+<tr><td>mid</td><td>{{ object.mid }}</td></tr>
+<tr><td>Name</td><td>{{ object.Name }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit account</a>
+
+{% endblock %}

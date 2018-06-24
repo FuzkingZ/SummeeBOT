@@ -1,0 +1,129 @@
+
+
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}"> {% endcomment %}
+
+    <!-- Compiled and minified JavaScript -->
+    
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    {% comment %} <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/extra.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/datatables.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.material.min.css' %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> - SummeeBoT</title>
+
+    {% block head %}
+    {% include 'material/includes/material_css.html' %}
+    
+   
+    {% block extrahead %}{% endblock %}
+    {% endblock %}
+  </head>
+  
+  
+
+  <body class="valign-wrapper2" >
+    {% if user.is_authenticated %}
+
+    
+    <div class="wrapper">
+
+     
+           
+         
+    
+            
+     
+    
+    </div>
+  <div  class=" ">
+        <div class="navbar-fixed ">
+            <ul id="dd_help" class="dropdown-content">
+                <li><a href="#!">User Profile</a></li>
+                <li><a href="#!">Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">ติดต่อสอบถาม</a></li>
+                <li><a href="#!">วิธีใช้</a></li>
+                <li class="divider"></li>
+                <li><a href="../../accounts/logout">ออกจากระบบ</a></li>
+              </ul>
+            <nav class="light-blue lighten-1" role="navigation"> <!-- navbar content here  -->
+                <div class="nav-wrapper container">
+                    <a href="#!" class="brand-logo center">{% block title %}  {% endblock %} - SummeeBoT</a>
+                    {% comment %} <a  class="right" href="/accounts/logout"><i class="material-icons large">settings_power</i></a>  {% endcomment %}
+                    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <!-- Dropdown Trigger -->
+                        <li><a class="dropdown-trigger" href="#!" data-target="dd_help">เมนูระบบ<i class="material-icons right">arrow_drop_down</i></a></li>
+                    </ul>
+                </div>
+              
+              
+                  <ul id="slide-out" class="sidenav sidenav-fixed">
+                      <li><div class="user-view">
+                        <div class="background">
+                          <img src="http://via.placeholder.com/350x150">
+                        </div>
+                        <a href="#user">
+                          <img class="circle" src="{% static 'img/user/'%}{{ user.get_username }}.png ">
+                        </a>
+                        <a href="#name"><span class="black-text name bold" >Login as {{ user.get_username }}</span></a>
+                       
+                      </div></li>
+                      <li><a class="waves-effect" href="/endpoints/account"><i class="material-icons">account_circle</i>บัญชีไลน์</a></li>
+                      <li><a class="waves-effect" href="/endpoints/message"><i class="material-icons">message</i>ข้อความ</a></li>
+                      <li><a class="waves-effect" href="/endpoints/timeline"><i class="material-icons">timeline</i>ไทมไลน์</a></li>
+                      <li><a class="waves-effect" href="#!"><i class="material-icons">timer_3</i>คิวงาน</a></li>
+                      <li><div class="divider"></div></li>
+                      <li><a class="subheader">Information</a></li>
+                      <p class="black">Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+                    </ul>
+             
+          
+
+
+                
+              </nav>
+          </div>
+        </div> 
+         
+
+      {% else %}
+      <p>Welcome, new user. Please log in. <a href="/accounts/login/">click</a></p>
+      {% endif %}
+      
+        
+        
+      
+ 
+      <div style="padding-left:50px;" class="{% block container_class %} container expand-on-small-only{% endblock %}">
+          {% block content %} 
+        
+          <div class="container main-content">
+          
+            </div>
+     
+          {% endblock %}
+      </div>
+      {% block js %}
+      <script src="{% static 'material/js/jquery.js' %}"></script>
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/materialize.min.js' %}"></script>
+      <script src="{% static 'js/extra.js' %}"></script>
+     
+ 
+        <script type="text/javascript" src="{% static 'js/datatables.min.js' %}"></script>
+
+
+      {% include 'material/includes/material_js.html' %}
+      {% block extrajs %}{% endblock %}
+      
+    
+      {% endblock %}
+  </body>
+</html>
