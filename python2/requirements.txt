@@ -1,7 +1,7 @@
 Django>=1.11
 django-extensions==1.7.5
 
-djangorestframework==3.5.3
+djangorestframework==3.11.2
 
 django-crispy-forms==1.6.1
 
