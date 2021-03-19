@@ -15,7 +15,7 @@ Django==2.0.1
 django-crispy-forms==1.6.1
 django-extensions==1.7.5
 django-material==1.2.0
-djangorestframework==3.5.3
+djangorestframework==3.11.2
 ez-setup==0.9
 hyperlink==18.0.0
 idna==2.6
