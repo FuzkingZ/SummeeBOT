@@ -2,7 +2,7 @@ akad==0.11.1
 asgiref==1.1.2
 astroid==1.6.0
 attrs==18.1.0
-autobahn==18.6.1
+autobahn==20.12.3
 Automat==0.7.0
 beautifulsoup4==4.6.0
 certifi==2017.11.5
